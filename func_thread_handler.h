@@ -19,6 +19,7 @@ namespace util {
 		std::map < std::string, thread_msg_lib<std::string>> func_thread_table_;
 		std::mutex table_mutex_;
 	public:
+		bool is_dispatch_id_exists(const std::string id) const;
 		template<typename Func>
 		void register_id(std::string id, Func func) {
 			std::lock_guard<std::mutex> l{ table_mutex_ };
